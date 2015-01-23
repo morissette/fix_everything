@@ -1,0 +1,50 @@
+{
+  "software": {
+    "wordpress": {
+      "files": [
+        "index.php", 
+        "wp-blog-header.php",
+        "wp-comments-post.php",
+        "wp-config.php",
+        "wp-cron.php",
+        "wp-load.php",
+        "wp-login.php",
+        "wp-mail.php",
+        "wp-settings.php",
+        "wp-signup.php",
+        "wp-trackback.php",
+        "xmlrpc.php"
+      ],
+      "dirs": [
+        "wp-admin",
+        "wp-content",
+        "wp-includes"
+      ]
+    },
+    "joomla": {
+      "files": [
+        "index.php"
+      ],
+      "dirs": [
+        "administrator",
+        "cache",
+        "cli",
+        "components",
+        "images",
+        "includes",
+        "installation",
+        "language",
+        "layouts",
+        "libraries",
+        "logs",
+        "media",
+        "modules",
+        "plugins",
+        "templates",
+        "tmp"
+      ]
+    }
+  }
+}
+
+ 

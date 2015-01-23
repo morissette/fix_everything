@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use lib '/root/bin2';
+use FE::Core;
+use FE::Detect;
+use FE::Wordpress;
+use FE::Joomla;
+use FE::Apache;
+use FE::PHP;
+use FE::Mysql;
+use FE::Server;
+
+##################################################
+# Confirm proper server environment              #
+##################################################
+FE::Core::test_environment();
+
+##################################################
+# Determine if there is any third party software #
+# that support has been added for                #
+##################################################
+my $user = FE::Core::get_user();
+if ( $user ) {
+    my $software = ucfirst(FE::Detect::find_software($user));
+    if ( $software ) {
+        "FE::$software"->run_tests($user);
+    } else {
+        FE::Core::info("No supported software found");
+    }
+} else {
+    FE::Core::info("No user found, skipping software tests");
+}
+
+##################################################
+# Check Basic Service Logs for User Passed       #
+# Apache Error Log, PHP Error Logs, MySQL Log    #
+##################################################
+if ( $user ) {
+    FE::Apache::run_tests($user);
+    FE::PHP::run_tests($user);
+    FE::Mysql::run_tests($user);
+}
+
+FE::Server::run_tests();
+

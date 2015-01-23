@@ -1,0 +1,30 @@
+{
+    "check_site_url": [
+        {
+            "type": "mysql"
+        },
+        {
+            "definition": "SELECT option_value FROM table_placeholderoptions WHERE option_name = 'siteurl'"
+        },
+        {
+            "success": "Siteurl matches properly"
+        },
+        {
+            "failed": "Siteurl does not seem to match (placeholder)"
+        }
+    ],
+    "sample_test": [
+        {   
+            "type": "file"
+        },
+        {
+            "definition": "index.php"
+        },
+        {
+            "success": "File index.php exists"
+        },
+        {
+            "failed": "File index.php does not exist"
+        }
+    ]
+}
